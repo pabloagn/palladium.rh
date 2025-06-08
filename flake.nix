@@ -1,5 +1,5 @@
 {
-  description = "Rhodium Alloys | Plugin Collections for the Rhodium System";
+  description = "Rhodium Alloys | Plugin Collections";
 
   inputs = {
     fish-colored-man = { url = "github:decors/fish-colored-man"; flake = false; };
