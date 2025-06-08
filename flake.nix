@@ -1,56 +1,25 @@
 {
-  description = "Rhodium Alloys | Plugin Collections";
+  description = "Rhodium Alloys | Plugin Collections for the Rhodium System";
 
   inputs = {
-    fish_plugin_colored_man_src = {
-      url = "github:decors/fish-colored-man";
-      flake = false;
-    };
-
-    fish_plugin_z_src = {
-      url = "github:jethrokuan/z";
-      flake = false;
-    };
-
-    yazi_official_plugins_src = {
-      url = "github:yazi-rs/plugins";
-      flake = false;
-    };
-    yazi_plugin_miller_src = {
-      url = "github:Reledia/miller.yazi";
-      flake = false;
-    };
-    yazi_plugin_yatline_src = {
-      url = "github:imsi32/yatline.yazi";
-      flake = false;
-    };
+    fish-colored-man = { url = "github:decors/fish-colored-man"; flake = false; };
+    fish-z = { url = "github:jethrokuan/z"; flake = false; };
+    yazi-official = { url = "github:yazi-rs/plugins"; flake = false; };
+    yazi-miller = { url = "github:Reledia/miller.yazi"; flake = false; };
+    yazi-yatline = { url = "github:imsi32/yatline.yazi"; flake = false; };
   };
 
-  outputs = { self, ... }@inputs_map:
-    let
-      mkPluginSet = pluginDefinitions:
-        let
-          plugins = builtins.mapAttrs (name: definition: {
-            inherit name;
-            src = if builtins.isString definition then definition else definition.src;
-          }) pluginDefinitions;
-        in
-        {
-          inherit plugins;
-          pluginsList = builtins.attrValues plugins;
-        };
+  outputs = { self, ... }@inputs: {
+    fish = [
+      { name = "colored-man"; src = inputs.fish-colored-man; }
+      { name = "z"; src = inputs.fish-z; }
+    ];
 
-      fishPluginDefinitions = import ./fish { pluginInputs = inputs_map; };
-      yaziPluginDefinitions = import ./yazi { pluginInputs = inputs_map; };
-
-    in
-    {
-      fish = mkPluginSet fishPluginDefinitions;
-      yazi = mkPluginSet yaziPluginDefinitions;
-
-      legacyPackages.x86_64-linux.fishPlugins = self.fish.plugins;
-      legacyPackages.x86_64-linux.fishPluginsList = self.fish.pluginsList;
-      legacyPackages.x86_64-linux.yaziPlugins = self.yazi.plugins;
-      legacyPackages.x86_64-linux.yaziPluginsList = self.yazi.pluginsList;
+    yazi = {
+      git = inputs.yazi-official + "/git.yazi";
+      miller = inputs.yazi-miller;
+      full-border = inputs.yazi-official + "/full-border.yazi";
+      yatline = inputs.yazi-yatline;
     };
+  };
 }
