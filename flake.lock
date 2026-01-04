@@ -93,17 +93,16 @@
     "yazi-yatline": {
       "flake": false,
       "locked": {
-        "lastModified": 1749709910,
-        "narHash": "sha256-RkQKZQAa5U9eMWk1Q0doueJZiuP4elUJ0dM1XKLSnDo=",
-        "owner": "imsi32",
-        "repo": "yatline.yazi",
-        "rev": "88bd1c58357d472fe7e8daf9904936771fc49795",
+        "lastModified": 1767370143,
+        "narHash": "sha256-5dMAJ6W/L66XuH4CCwRRFpKSLy0ZDFIABAYleFX0AsQ=",
+        "owner": "yazi-rs",
+        "repo": "plugins",
+        "rev": "03cdd4b5b15341b3c0d0f4c850d633fadd05a45f",
         "type": "github"
       },
       "original": {
-        "owner": "imsi32",
-        "ref": "main",
-        "repo": "yatline.yazi",
+        "owner": "yazi-rs",
+        "repo": "plugins",
         "type": "github"
       }
     }
