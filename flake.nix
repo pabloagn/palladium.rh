@@ -19,7 +19,7 @@
       flake = false;
     };
     yazi-yatline = {
-      url = "github:yazi-rs/plugins";
+      url = "github:imsi32/yatline.yazi/main";
       flake = false;
     };
   };
@@ -45,7 +45,7 @@
       git = inputs.yazi-official + "/git.yazi";
       miller = inputs.yazi-miller;
       full-border = inputs.yazi-official + "/full-border.yazi";
-      yatline = inputs.yazi-yatline + "/yatline.yazi";
+      yatline = inputs.yazi-yatline;
     };
 
     # Development shell
