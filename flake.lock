@@ -102,6 +102,7 @@
       },
       "original": {
         "owner": "imsi32",
+        "ref": "main",
         "repo": "yatline.yazi",
         "type": "github"
       }

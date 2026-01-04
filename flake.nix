@@ -19,7 +19,7 @@
       flake = false;
     };
     yazi-yatline = {
-      url = "github:imsi32/yatline.yazi";
+      url = "github:imsi32/yatline.yazi/main";
       flake = false;
     };
   };
